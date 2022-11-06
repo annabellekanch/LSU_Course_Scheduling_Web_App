@@ -78,7 +78,7 @@ h3
 .search_bar i
 {
     position: absolute;
-    left: 1490px;
+    left: 1450px;
     bottom: 577px;
     
 }
@@ -160,10 +160,11 @@ table button
 {
     background-color: #fec52e;
     border-color: #fec52e;
-    border-radius: 2%;
+    border-radius: 4px;
     font-style: oblique;
     box-shadow: inset;
     color: #5e0882;
+    
 }
 
 .modalcontainer
@@ -183,7 +184,7 @@ table button
 
 .modal
 {
-    background-color: rgb(245, 245, 245);
+    background-color: #f4f4f4;
     width: 700px;
     height: 235px;
     max-width:100%;
@@ -215,5 +216,9 @@ table button
 #close
 {
     float: right;
-    
+}
+
+#c
+{
+    float:right;
 }
