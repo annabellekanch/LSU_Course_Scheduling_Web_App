@@ -4,7 +4,7 @@
         <meta charset = "UTF-8">
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
         <title> LSU Course Scheduling</title>
-        <!--All Icons in use on this website are from fontawesome-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <link rel = "stylesheet" href = "course.css">
         <script src = "course.js"></script>
         <script src="https://kit.fontawesome.com/29685bc12f.js" crossorigin="anonymous"></script>
@@ -14,7 +14,7 @@
             <ul>
                 <li><a class = "right"><img src = "images/logo.png" alt = "logo"></a></li>
                 <li><a href = "schedule.html" class = "left">My Schedule</a></li>
-                <li><a href = "index.html" class = "left">Course Offerings</a></li>
+                <li><a href = "course.html" class = "left">Course Offerings</a></li>
             </ul>
         </header>
         <hr size="10" width="100%" color="#fff">          
@@ -26,7 +26,6 @@
             <input type = "text" id = "myInput" name = "search" placeholder = "  Search for a course" >
             <i class="fa-solid fa-magnifying-glass"></i>
         </div>
-        <h3>**click course name for course description**</h3>
         <div class = "outer-wrapper">
             <div class = "table-wrapper">
                 <table id = "emp-table">
@@ -54,7 +53,8 @@
                             </select>
                         </th>
                         <th col-index = 10>Room</th>
-                        <th col-index = 11> Add Course</th>
+                        <th col-index = 11>Course Info</th>
+                        <th col-index = 12> Add</th>
                     </thead>
                     <tbody>
                         <!-- <tr>
@@ -81,6 +81,20 @@
                             <td>M,W</td>
                             <td>Brener,N</td>
                             <td>1245 PFT</td>
+                            <td><button id = "open">CSC 1240</button>
+                                <div class = "modalcontainer" id = "modalcontainer">
+                                    <div class = "modal">
+                                        <h2>CSC 1240</h2>
+                                        <br>
+                                        <br>
+                                        <p style = "font-style: italic;">2 hrs. lecture; 2 hrs. lab. Introduction to MATLAB programming with application in statistics and graphics</p>
+                                        <br>
+                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">Pre-requisites: MATH 1021 or placement in MATH 1022, MATH 1023, MATH 1431, MATH 1550 or MATH 1551. Credit will not be given for both this course and CSC 2262 or CSC 2533 or OCS 2011.</p>
+                                        <br>
+                                        <button id = "close">Close</button>
+                                    </div>
+                                </div>
+                            </td>
                             <td></td>
                         </tr>
                         <tr>
@@ -95,6 +109,7 @@
                             <td>Duncan,W</td>
                             <td>1221 PFT</td>
                             <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>CSC 1253</td>
@@ -107,6 +122,7 @@
                             <td>T,Th</td>
                             <td>Walker,C</td>
                             <td>1236 PFT</td>
+                            <td></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -121,6 +137,7 @@
                             <td>Aymond,P</td>
                             <td>1253 PFT</td>
                             <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>CSC 1350</td>
@@ -133,6 +150,7 @@
                             <td>T,Th</td>
                             <td>Kundu,S</td>
                             <td>1206 PFT</td>
+                            <td></td>
                             <td></td>
                         </tr>
                         <tr>
@@ -147,6 +165,7 @@
                             <td>Brener,N</td>
                             <td>1200 PFT</td>
                             <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>CSC 1351</td>
@@ -160,8 +179,10 @@
                             <td>Glass,C</td>
                             <td>1100 PFT</td>
                             <td></td>
+                            <td></td>
                         </tr>
                         <tr>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -195,7 +216,23 @@
                         })
                     });
                 </script>
+                <script>
+                    const open = document.getElementById("open");
+                    const modalcontainer = document.getElementById("modalcontainer");
+                    const close = document.getElementById("close");
+
+                    open.addEventListener('click', () =>{
+                        modalcontainer.classList.add('show');
+                    });
+
+                    close.addEventListener('click', () =>{
+                        modalcontainer.classList.remove('show');
+                    });
+
+                </script>
             </div>
         </div>
     </body>
 </html>
+
+
