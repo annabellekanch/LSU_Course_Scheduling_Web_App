@@ -52,7 +52,7 @@ h1
     color:#5e0882;
     float: left;
     padding-left: 15px;
-    padding-top: 3px;
+    padding-top: 30px;
 }
 h3
 {
@@ -79,7 +79,7 @@ h3
 {
     position: absolute;
     left: 1490px;
-    padding-top: 0.01px;
+    bottom: 577px;
     
 }
 .outer-wrapper {
@@ -140,19 +140,80 @@ table th{
 
 table th, table td {
     
-    padding: 15px;
+    padding: 15.5px;
     padding-top: 10px;
     padding-bottom: 10px;
+    
     
 }
 
 table td {
     text-align: left;
     
-    font-size: 15px;
+    font-size: 13.5px;
     border: 1px solid white;
     padding-left: 20px;
     /*rgb(177, 177, 177)*/
 }
 
+table button
+{
+    background-color: #fec52e;
+    border-color: #fec52e;
+    border-radius: 2%;
+    font-style: oblique;
+    box-shadow: inset;
+    color: #5e0882;
+}
 
+.modalcontainer
+{
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal
+{
+    background-color: rgb(245, 245, 245);
+    width: 700px;
+    height: 235px;
+    max-width:100%;
+    border-radius: 5px;
+    padding: 30px 50px;
+    
+}
+
+.modal h2
+{
+    margin: 0;
+    color:#5e0882;
+    float: left;
+}
+.modal p
+{
+    margin: 0;
+    top: 50px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.modalcontainer.show
+{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#close
+{
+    float: right;
+    
+}
