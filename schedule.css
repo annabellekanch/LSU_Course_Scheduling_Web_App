@@ -47,3 +47,155 @@ header li img
     margin-left: 30px;
     left: 0px;
 }
+h1
+{
+    color:#5e0882;
+    float: left;
+    padding-left: 15px;
+    padding-top: 30px;
+}
+
+
+.outer-wrapper {
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* border: 1px solid black;  */
+    border-radius: 3px;
+    /* box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.9); */
+    /* max-width: fit-content;
+    max-height: fit-content; */
+    align-items: center;
+    
+}
+.table-wrapper {
+
+    /* overflow-y: scroll;
+    overflow-x: scroll; */
+    height: fit-content;
+    max-height: 76.4vh;
+   
+    margin-top: 22px;
+    
+    margin: 0;
+    padding-bottom: 10px;
+    
+}
+
+
+table {
+    
+    /* min-width: max-content; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px;    
+    
+}
+
+.table-filter 
+{
+    border-radius: 4px;
+
+}
+table th{
+    position: sticky; 
+    top: 0px;
+    
+    background-color: #5e0882;
+    color: #fec52e;
+    
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+    outline: 0.7px solid rgb(161, 161, 161);
+    border: 1.5px solid rgb(161, 161, 161);
+
+} 
+
+
+
+table th, table td {
+    
+    padding: 15.5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+    
+}
+
+table td {
+    text-align: center;
+    
+    font-size: 20px;
+    border: 1px solid rgb(161, 161, 161);
+    padding-left: 20px;
+    /*rgb(177, 177, 177)*/
+}
+
+table button
+{
+    background-color: #fec52e;
+    border-color: #fec52e;
+    border-radius: 4px;
+    font-style: oblique;
+    box-shadow: inset;
+    color: #5e0882;
+    
+}
+.modalcontainer
+{
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal
+{
+    background-color: #f4f4f4;
+    width: 500px;
+    height: 250px;
+    max-width:100%;
+    border-radius: 5px;
+    padding: 30px 50px;
+    
+}
+
+.modal h2
+{
+    margin: 0;
+    color:#5e0882;
+    float: left;
+}
+.modal p
+{
+    margin: 0;
+    top: 50px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.modalcontainer.show
+{
+    pointer-events: auto;
+    opacity: 1;
+}
+
+#close
+{
+    float: right;
+}
+
+#c
+{
+    float:right;
+}
