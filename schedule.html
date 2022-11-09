@@ -14,10 +14,98 @@
             <ul>
                 <li><a href = "home.html" class = "right"><img src = "images/logo.png" alt = "logo"></a></li>
                 <li><a href = "schedule.html" class = "left">My Schedule</a></li>
-                <li><a href = "index.html" class = "left">Course Offerings</a></li>
+                <li><a href = "course.html" class = "left">Course Offerings</a></li>
             </ul>
         </header>
         <hr size="10" width="100%" color="#fff">          
         <hr size="10" width="100%" color="#5e0882">  
+        <div>
+            <h1>Your Schedule</h1>
+        </div>
+        <div class = "outer-wrapper">
+            <div class = "table-wrapper">
+                <table id = "emp-table">
+                    <thead>
+                        <th col-index = 1> Monday</th>
+                        <th col-index = 2> Tuesday</th>
+                        <th col-index = 3> Wednesday</th>
+                        <th col-index = 4> Thursday</th>
+                        <th col-index = 5> Friday</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> </td>
+                            <td><button id = "open">CSC 1350</button>
+                                <div class = "modalcontainer" id = "modalcontainer">
+                                    <div class = "modal">
+                                        <h2>CSC 1350</h2>
+                                        <br>
+                                        <br>
+                                        <p style = "font-style: italic;">
+                                            Professor: Kundu, S
+                                            <br>
+                                            Time: 10:30 - 11:50
+                                            <br>
+                                            Room: 1206 PFT
+                                            <br>   
+                                        </p>
+                                        <br>
+                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">
+                                            Lab Day: Tuesday
+                                            <br>
+                                            Lab Time: 4:30 - 7:20N
+                                        </p>
+                                        <button class = "close" id = "close">Close</button>
+                                    </div>
+                            </td>
+                            <td> </td>
+                            <td>CSC 1350</td>
+                            <td> </td>
+                        </tr>
+                        <tr>
+                            <td>   <br>      </td>
+                            <td>         </td>
+                            <td>         </td>
+                            <td>         </td>
+                            <td>         </td>
+                        </tr>
+                        <tr>
+                            <td>   <br>      </td>
+                            <td>         </td>
+                            <td>         </td>
+                            <td>         </td>
+                            <td>         </td>
+                        </tr>
+                        <tr>
+                            <td>CSC 1351</td>
+                            <td></td>
+                            <td>CSC 1351</td>
+                            <td></td>
+                            <td>CSC 1351</td>
+                        </tr>
+                        <tr>
+                            <td>   <br>      </td>
+                            <td>         </td>
+                            <td>         </td>
+                            <td>         </td>
+                            <td>         </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </body>
+    <script>
+                            const open = document.getElementById("open");
+                    const modalcontainer = document.getElementById("modalcontainer");
+                    const close = document.getElementById("close");
+
+                    open.addEventListener('click', () =>{
+                        modalcontainer.classList.add('show');
+                    });
+
+                    close.addEventListener('click', () =>{
+                        modalcontainer.classList.remove('show');
+                    });
+    </script>
 </html>
