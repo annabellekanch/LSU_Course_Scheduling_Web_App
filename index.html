@@ -271,6 +271,7 @@
                     </tbody>
                 </table>
                 <script>
+                //calling the filter function once the window loads
                     window.onload = () => {
                         console.log(document.querySelector("#emp-table > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
                     };
@@ -279,6 +280,7 @@
                     
                 </script>
                 <script>
+                //js script for search bar
                     const searchInput = document.getElementById("myInput");
                     const rows = document.querySelectorAll("tbody tr");
                     searchInput.addEventListener('keyup', function(event){
@@ -289,6 +291,7 @@
                     });
                 </script>
                 <script>
+                //js script for modal(course description button)
                     const open = document.getElementById("open");
                     const modalcontainer = document.getElementById("modalcontainer");
                     const close = document.getElementById("close");
@@ -303,6 +306,7 @@
 
                 </script>
                 <script>
+                //js script for modal(course description button)
                     const o = document.getElementById("o");
                     const mc = document.getElementById("mc");
                     const c = document.getElementById("c");
@@ -317,6 +321,7 @@
 
                 </script>
                 <script> 
+                //j query function for checking if a checkbox is checked and keeping it checked
                   jQuery(function(){
                         if (localStorage.input) {
                             var checks = JSON.parse(localStorage.input);
