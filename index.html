@@ -1,343 +1,131 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <meta charset = "UTF-8">
-        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
-        <title> LSU Course Scheduling</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <link rel = "stylesheet" href = "course.css">
-        <script src = "course.js"></script>
-        <script src="https://kit.fontawesome.com/29685bc12f.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <header>
-            <ul>
-                <li><a class = "right"><img src = "images/logo.png" alt = "logo"></a></li>
-                <li><a href = "schedule.html" class = "left">My Schedule</a></li>
-                <li><a href = "course.html" class = "left">Course Offerings</a></li>
-            </ul>
-        </header>
-        <hr size="10" width="100%" color="#fff">          
-        <hr size="10" width="100%" color="#5e0882">
-        <div>
-            <h1>Computer Science Department</h1>
-        </div>  
-        <div class = "search_bar">
-            <input type = "text" id = "myInput" name = "search" placeholder = "  Search for a course" >
-            <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div class = "outer-wrapper">
-            <div class = "table-wrapper">
-                <table id = "emp-table">
-                    <thead>
-                        <th col-index = 1>Course Name
-                            <select class="table-filter" onchange="filter_rows()">
-                                <option value="all"></option>
-                            </select>
-                        </th>
-                        <th col-index = 2>Course Title</th>
-                        <th col-index = 3>Section</th>
-                        <th col-index = 4>Credit Hours</th>
-                        <th col-index = 5>Time
-                        </th>
-                        <th col-index = 6>Lab Time</th>
-                        <th col-index = 7>Lab Day</th>
-                        <th col-index = 8>Days
-                            <select class="table-filter" onchange="filter_rows()">
-                                <option value="all"></option>
-                            </select>
-                        </th>
-                        <th col-index = 9>Professors
-                            <select class="table-filter" onchange="filter_rows()">
-                                <option value="all"></option>
-                            </select>
-                        </th>
-                        <th col-index = 10>Room</th>
-                        <th col-index = 11>Course Info</th>
-                        <th col-index = 12> Add</th>
-                    </thead>
-                    <tbody>
-                        <!-- <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td><input type = "checkbox"></td>
-                        </tr> -->
-                        <tr>
-                            <td>CSC 1240</td>
-                            <td>Statistics & Graphics with Matlab</td>
-                            <td>1</td>
-                            <td>3</td>
-                            <td>11:30 - 12:20</td>
-                            <td>11:30 - 1:20</td>
-                            <td>F</td>
-                            <td>M,W</td>
-                            <td>Brener,N</td>
-                            <td>1245 PFT</td>
-                            <td><button id = "open">CSC 1240</button>
-                                <div class = "modalcontainer" id = "modalcontainer">
-                                    <div class = "modal">
-                                        <h2>CSC 1240</h2>
-                                        <br>
-                                        <br>
-                                        <p style = "font-style: italic;">2 hrs. lecture; 2 hrs. lab. Introduction to MATLAB programming with application in statistics and graphics</p>
-                                        <br>
-                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">Pre-requisites: MATH 1021 or placement in MATH 1022, MATH 1023, MATH 1431, MATH 1550 or MATH 1551. Credit will not be given for both this course and CSC 2262 or CSC 2533 or OCS 2011.</p>
-                                        <br>
-                                        <button id = "close">Close</button>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><input id = "checkbox" type = "checkbox" autocomplete="off"></td>
-                        </tr>
-                        <tr>
-                            <td>CSC 1253</td>
-                            <td>Computer Science with C++</td>
-                            <td>1</td>
-                            <td>3</td>
-                            <td>10:30 - 11:50</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>T,Th</td>
-                            <td>Duncan,W</td>
-                            <td>1221 PFT</td>
-                            <td><button id = "o">CSC 1253</button>
-                                <div class = "modalcontainer" id = "mc">
-                                    <div class = "modal">
-                                        <h2>CSC 1253</h2>
-                                        <br>
-                                        <br>
-                                        <p style = "font-style: italic;">Fundamentals of algorithm development, program design and structured programming using an object-oriented language.</p>
-                                        <br>
-                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">Pre-requisites: credit or registration in MATH 1550 or credit in MATH 1431. Credit will not be given for both this course and CSC 1250 or CSC 1350. </p>
-                                        <br>
-                                        <button id = "c">Close</button>
-                                    </div>
-                                </div></td>
-                            <td><input type = "checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td>CSC 1253</td>
-                            <td>Computer Science with C++</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>1:30 - 2:50</td>
-                            <td>N/A</td>
-                            <td>N/A</td>
-                            <td>T,Th</td>
-                            <td>Walker,C</td>
-                            <td>1236 PFT</td>
-                            <td><button id = "open">CSC 1253</button>
-                                <div class = "modalcontainer" id = "modalcontainer">
-                                    <div class = "modal">
-                                        <h2>CSC 1240</h2>
-                                        <br>
-                                        <br>
-                                        <p style = "font-style: italic;">2 hrs. lecture; 2 hrs. lab. Introduction to MATLAB programming with application in statistics and graphics</p>
-                                        <br>
-                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">Pre-requisites: MATH 1021 or placement in MATH 1022, MATH 1023, MATH 1431, MATH 1550 or MATH 1551. Credit will not be given for both this course and CSC 2262 or CSC 2533 or OCS 2011.</p>
-                                        <br>
-                                        <button id = "close">Close</button>
-                                    </div>
-                                </div></td>
-                            <td><input type = "checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td>CSC 1350</td>
-                            <td>Computer Science I</td>
-                            <td>1</td>
-                            <td>4</td>
-                            <td>10:30 - 11:20</td>
-                            <td>4:30 - 7:20n</td>
-                            <td>W</td>
-                            <td>M,W,F</td>
-                            <td>Aymond,P</td>
-                            <td>1253 PFT</td>
-                            <td><button id = "open">CSC 1350</button>
-                                <div class = "modalcontainer" id = "modalcontainer">
-                                    <div class = "modal">
-                                        <h2>CSC 1240</h2>
-                                        <br>
-                                        <br>
-                                        <p style = "font-style: italic;">2 hrs. lecture; 2 hrs. lab. Introduction to MATLAB programming with application in statistics and graphics</p>
-                                        <br>
-                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">Pre-requisites: MATH 1021 or placement in MATH 1022, MATH 1023, MATH 1431, MATH 1550 or MATH 1551. Credit will not be given for both this course and CSC 2262 or CSC 2533 or OCS 2011.</p>
-                                        <br>
-                                        <button id = "close">Close</button>
-                                    </div>
-                                </div></td>
-                            <td><input type = "checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td>CSC 1350</td>
-                            <td>Computer Science I</td>
-                            <td>2</td>
-                            <td>4</td>
-                            <td>10:30 - 11:50</td>
-                            <td>4:30 - 7:20N</td>
-                            <td>T</td>
-                            <td>T,Th</td>
-                            <td>Kundu,S</td>
-                            <td>1206 PFT</td>
-                            <td><button id = "open">CSC 1350</button>
-                                <div class = "modalcontainer" id = "modalcontainer">
-                                    <div class = "modal">
-                                        <h2>CSC 1240</h2>
-                                        <br>
-                                        <br>
-                                        <p style = "font-style: italic;">2 hrs. lecture; 2 hrs. lab. Introduction to MATLAB programming with application in statistics and graphics</p>
-                                        <br>
-                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">Pre-requisites: MATH 1021 or placement in MATH 1022, MATH 1023, MATH 1431, MATH 1550 or MATH 1551. Credit will not be given for both this course and CSC 2262 or CSC 2533 or OCS 2011.</p>
-                                        <br>
-                                        <button id = "close">Close</button>
-                                    </div>
-                                </div></td>
-                            <td><input type = "checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td>CSC 1351</td>
-                            <td>Computer Science II</td>
-                            <td>1</td>
-                            <td>4</td>
-                            <td>9:30 - 10:20</td>
-                            <td>2:30 - 5:20</td>
-                            <td>F</td>
-                            <td>M,W,F</td>
-                            <td>Brener,N</td>
-                            <td>1200 PFT</td>
-                            <td><button id = "open">CSC 1351</button>
-                                <div class = "modalcontainer" id = "modalcontainer">
-                                    <div class = "modal">
-                                        <h2>CSC 1240</h2>
-                                        <br>
-                                        <br>
-                                        <p style = "font-style: italic;">2 hrs. lecture; 2 hrs. lab. Introduction to MATLAB programming with application in statistics and graphics</p>
-                                        <br>
-                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">Pre-requisites: MATH 1021 or placement in MATH 1022, MATH 1023, MATH 1431, MATH 1550 or MATH 1551. Credit will not be given for both this course and CSC 2262 or CSC 2533 or OCS 2011.</p>
-                                        <br>
-                                        <button class = "close" id = "close">Close</button>
-                                    </div>
-                                </div></td>
-                            <td><input type = "checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td>CSC 1351</td>
-                            <td>Computer Science II</td>
-                            <td>2</td>
-                            <td>4</td>
-                            <td>10:30 - 11:50</td>
-                            <td>4:30 - 7:20N</td>
-                            <td>Th</td>
-                            <td>T,Th</td>
-                            <td>Glass,C</td>
-                            <td>1100 PFT</td>
-                            <td><button id = "open">CSC 1351</button>
-                                <div class = "modalcontainer" id = "modalcontainer">
-                                    <div class = "modal">
-                                        <h2>CSC 1240</h2>
-                                        <br>
-                                        <br>
-                                        <p style = "font-style: italic;">2 hrs. lecture; 2 hrs. lab. Introduction to MATLAB programming with application in statistics and graphics</p>
-                                        <br>
-                                        <p style = "color: maroon; font-weight: bold; font-size: 12px;">Pre-requisites: credit or registration in MATH 1550 or credit in MATH 1431. Credit will not be given for both this course and CSC 1250 or CSC 1350.</p>
-                                        <br>
-                                        <button class = "close" id = "close">Close</button>
-                                    </div>
-                                </div></td>
-                            <td><input type = "checkbox"></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+<html>
 
-                    </tbody>
-                </table>
-                <script>
-                //calling the filter function once the window loads
-                    window.onload = () => {
-                        console.log(document.querySelector("#emp-table > tbody > tr:nth-child(1) > td:nth-child(2) ").innerHTML);
-                    };
-            
-                    getUniqueValuesFromColumn()
-                    
-                </script>
-                <script>
-                //js script for search bar
-                    const searchInput = document.getElementById("myInput");
-                    const rows = document.querySelectorAll("tbody tr");
-                    searchInput.addEventListener('keyup', function(event){
-                        const q = event.target.value.toLowerCase();
-                        rows.forEach((row) => {
-                            row.querySelector('td').textContent.toLowerCase().startsWith(q) ? (row.style.display = "table-row") : (row.style.display = "none");
-                        })
-                    });
-                </script>
-                <script>
-                //js script for modal(course description button)
-                    const open = document.getElementById("open");
-                    const modalcontainer = document.getElementById("modalcontainer");
-                    const close = document.getElementById("close");
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
 
-                    open.addEventListener('click', () =>{
-                        modalcontainer.classList.add('show');
-                    });
+<body>
+  <header>
+    <ul>
+        <li><a href = "home.html" class = "right"><img src = "logo.png" alt = "logo"></a></li>
+        <li><a href = "schedule.html" class = "left">My Schedule</a></li>
+        <li><a href = "course.html" class = "left">Course Offerings</a></li>
+    </ul>
+</header>
+<hr size="10" width="100%" color="#fff">          
+<hr size="10" width="100%" color="#5e0882">  
+<div>
+    <h1>Your Schedule</h1>
+</div>
+<div class="schedule">
+  
+  <div class="schedule_header">
+    <span class="dl">Time</span>
+    <span class="ds">Ti</span></div>  
+  <!-- week-->
+  <div class="schedule_header schedule-sunday">
+    <span class="dl">Sunday</span>
+    <span class="ds">Su</span>
+  </div>
+  <div class="schedule_header schedule-monday">
+    <span class="dl">Monday</span>
+    <span class="ds">M</span></div>
+  <div class="schedule_header schedule-tuesday">
+    <span class="dl">Tuesday</span>
+    <span class="ds">T</span></div>
+  <div class="schedule_header schedule-wednesday">
+    <span class="dl">Wednesday</span>
+    <span class="ds">W</span></div>
+  <div class="schedule_header schedule-thursday">
+    <span class="dl">Thursday</span>
+    <span class="ds">Th</span></div>
+  <div class="schedule_header schedule-friday">
+    <span class="dl">Friday</span>
+    <span class="ds">F</span></div>
+  <div class="schedule_header schedule-saturday">
+    <span class="dl">Saturday</span>
+    <span class="ds">Sa</span></div>
+  
+  <!-- Time-->
+  <div class="schedule_time time-from-s">07:00 A.M.</div>
+  <div class="schedule_time time-from-sf">07:15 A.M.</div>
+  <div class="schedule_time time-from-st">07:30 AM.</div>
+  <div class="schedule_time time-from-sff">07:45 A.M.</div>
+  
+  <div class="schedule_time time-from-e">08:00 A.M.</div>
+  <div class="schedule_time time-from-ef">08:15 A.M.</div>
+  <div class="schedule_time time-from-et">08:30 AM.</div>
+  <div class="schedule_time time-from-eff">08:45 A.M.</div>
+  
+  <div class="schedule_time time-from-n">09:00 A.M.</div>
+  <div class="schedule_time time-from-nf">09:15 A.M.</div>
+  <div class="schedule_time time-from-nt">09:30 AM.</div>
+  <div class="schedule_time time-from-nff">09:45 A.M.</div>
+    
+<!--  Grid Rows-->
+  <div class="grid time-from-s time-to-sf schedule-row-from-sunday schedule-row-to-saturday"></div>  
+  <div class="grid time-from-sf time-to-st schedule-row-from-sunday schedule-row-to-saturday"></div>
+  <div class="grid time-from-st time-to-sff schedule-row-from-sunday schedule-row-to-saturday"></div>
+  
+  <div class="grid time-from-sff time-to-e schedule-row-from-sunday schedule-row-to-saturday"></div>
+  <div class="grid time-from-e time-to-ef schedule-row-from-sunday schedule-row-to-saturday"></div>
+  <div class="grid time-from-ef time-to-et schedule-row-from-sunday schedule-row-to-saturday"></div>
+  <div class="grid time-from-et time-to-eff schedule-row-from-sunday schedule-row-to-saturday"></div>
+  
+  <div class="grid time-from-eff time-to-n schedule-row-from-sunday schedule-row-to-saturday"></div>
+  <div class="grid time-from-n time-to-nf schedule-row-from-sunday schedule-row-to-saturday"></div>
+  <div class="grid time-from-nf time-to-nt schedule-row-from-sunday schedule-row-to-saturday"></div>
+  <div class="grid time-from-nt time-to-nff schedule-row-from-sunday schedule-row-to-saturday"></div>
+  <div class="grid grid-last time-from-nff time-to-nff schedule-row-from-sunday schedule-row-to-saturday"></div>
+<!--   ./Grid Rows-->
+  
+  <div class="grid schedule-sunday time-from-s time-to-nff"></div>
+  <div class="grid grid-last schedule-sunday time-from-nff time-to-nff"></div>
+  <div class="grid schedule-monday time-from-s time-to-nff"></div>
+  <div class="grid grid-last schedule-monday time-from-nff time-to-nff"></div>
+  
+  <div class="grid schedule-tuesday time-from-s time-to-nff"></div>
+  <div class="grid grid-last schedule-tuesday time-from-nff time-to-nff"></div>
+  
+  <div class="grid schedule-wednesday time-from-s time-to-nff"></div>
+  <div class="grid grid-last schedule-wednesday time-from-nff time-to-nff"></div>
+  
+  <div class="grid schedule-thursday time-from-s time-to-nff"></div>
+  <div class="grid grid-last schedule-thursday time-from-nff time-to-nff"></div>
+  
+  <div class="grid schedule-friday time-from-s time-to-nff"></div>
+  <div class="grid grid-last schedule-friday time-from-nff time-to-nff"></div>
+  
+  <div class="grid schedule-saturday time-from-s time-to-nff"></div>
+  <div class="grid grid-last schedule-saturday time-from-nff time-to-nff"></div>
+  
+  
+ <!-- Schedule Items -->
 
-                    close.addEventListener('click', () =>{
-                        modalcontainer.classList.remove('show');
-                    });
+<!--     <div class="schedule-item schedule-sunday time-from-sf time-to-sff bg-red">Event for sunday</div> -->
 
-                </script>
-                <script>
-                //js script for modal(course description button)
-                    const o = document.getElementById("o");
-                    const mc = document.getElementById("mc");
-                    const c = document.getElementById("c");
+<!--   <div class="schedule-item schedule-sunday time-from-st time-to-eff bg-blue">Event for sunday2</div>
+  <div class="schedule-item schedule-sunday time-from-nt time-to-nff bg-yellow">Event x S</div>
+  <div class="schedule-item schedule-monday time-from-s time-to-sff bg-green">Event for monday</div>
+  <div class="schedule-item schedule-monday time-from-eff time-to-nt bg-purple">Event for monday</div> -->
+  
+  
+<!--   <div class="schedule-item schedule-wednesday time-from-n time-to-nff bg-blue">Event for Wednesday</div> 
+  <div class="schedule-item schedule-wednesday time-from-sf time-to-st bg-purple">Event x W</div> 
+  
+  <div class="schedule-item schedule-thursday time-from-st time-to-e bg-yellow">Event for thursday</div>
+  <div class="schedule-item schedule-thursday time-from-eff time-to-n bg-green">Event x th</div>
+  
+  <div class="schedule-item schedule-friday time-from-e time-to-eff bg-purple">Event for friday</div>
+  
+  <div class="schedule-item schedule-saturday time-from-n time-to-nff bg-red">Event for saturday</div>-->
+</div> 
+  <script src="script.js"></script>
+</body>
 
-                    o.addEventListener('click', () =>{
-                        mc.classList.add('show');
-                    });
-
-                    c.addEventListener('click', () =>{
-                        mc.classList.remove('show');
-                    });
-
-                </script>
-                <script> 
-                //j query function for checking if a checkbox is checked and keeping it checked
-                  jQuery(function(){
-                        if (localStorage.input) {
-                            var checks = JSON.parse(localStorage.input);
-                            jQuery(':checkbox').prop('checked', function(i) {
-                                return checks[i];
-                            });
-                        }
-                    });
-
-                    jQuery(':checkbox').on('change', function() {
-                        localStorage.input = JSON.stringify(jQuery(':checkbox').map(function() {
-                            return this.checked;
-                        }).get());
-                    });
-                </script> 
-            </div>
-        </div>
-    </body>
 </html>
