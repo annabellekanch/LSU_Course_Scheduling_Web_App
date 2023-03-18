@@ -16,4 +16,6 @@ HTML/CSS
 Javascript
 
 ### Images
+![1](https://user-images.githubusercontent.com/77216805/226073358-d4532e1f-c881-43aa-9c20-b773d61256f1.png)
 
+![2](https://user-images.githubusercontent.com/77216805/226073389-0b57848f-f575-431d-8400-b0b918236307.png)
